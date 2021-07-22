@@ -15,8 +15,8 @@ class EDA():
 
     # Regresa la descripción del algoritmo
     def algorithm_description(self):
-        des = """**Proposito:** Tener una idea de la estructura del conjunto de datos, identificar la variable objetivo y posibles técnicas de modelado."""
-        return des
+        st.write("""**Proposito:** Tener una idea de la estructura del conjunto de datos, 
+        identificar la variable objetivo y posibles técnicas de modelado.""")
 
     def description_data_structure(self):
         st.write("### **Descripción de la estructura de datos**")
@@ -94,8 +94,8 @@ class EDA():
 
 
 if __name__ == "__main__":
-    eda = EDA(pd.read_csv("../../MaterialMineria/melb_data.csv"))
+    eda = EDA(pd.read_csv("./melb_data.csv"))
     print(eda.algorithm_description())
-    datos = pd.read_csv("../../MaterialMineria/melb_data.csv")
+    datos = pd.read_csv("./MaterialMineria/melb_data.csv")
     datos.hist(figsize=(15, 15))
     st.pyplot()

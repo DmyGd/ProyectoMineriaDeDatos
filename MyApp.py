@@ -4,7 +4,8 @@ import numpy as np  # Para crear vectores de datos de n dimenciones
 import matplotlib.pyplot as plt  # Para generar gráficos
 import seaborn as sns  # Para visualización de los datos
 from EDA import EDA
-
+from PCA_MD import PCA_MD
+# comando para ejecutar: streamlit run file.py
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 st.write("""
@@ -25,7 +26,7 @@ if file != None:
 # Add a selectbox to the sidebar:
 add_selectbox = st.sidebar.selectbox(
     'Algoritmo Actual',
-    ('EDA', 'Algoritmo 2', 'Algoritmo 3')
+    ('EDA', 'PCA', 'Algoritmo 3')
 )
 st.write("""
 # Estas en el algoritmo: 
@@ -33,14 +34,21 @@ st.write("""
 st.write(f"## *{add_selectbox}*")
 
 
-if add_selectbox == 'EDA':
-    try:
+try:
+    if add_selectbox == 'EDA':
         eda = EDA(data)
-        st.write(f"{eda.algorithm_description()}")
+        eda.algorithm_description()
         eda.description_data_structure()
         eda.missing_data()
         eda.outlier_detection()
         eda.relations_variables()
-
-    except:
-        st.write("No se ha ingresado una fuente de información")
+    if add_selectbox == 'PCA':
+        pca_md = PCA_MD(data)
+        pca_md.algorithm_description()
+        pca_md.data_standardization()
+        pca_md.cov_components_varianza()
+        pca_md.main_components()
+        pca_md.relevancy_ratio_cargas_()
+        pca_md.create_new_matrix()
+except:
+    st.write("No se ha ingresado una fuente de información")

@@ -16,6 +16,10 @@ file = st.file_uploader("Archivo", type="csv")
 
 if file != None:
     data = pd.read_csv(file)
+    if st.checkbox('Mostrar todos los datos'):
+        st.write(data)
+    if st.checkbox('Mostrar cabecera'):
+        st.write(data.head())
 
 # Barra de control lateral Izquierdo
 # Add a selectbox to the sidebar:
@@ -28,30 +32,15 @@ st.write("""
 """)
 st.write(f"## *{add_selectbox}*")
 
+
 if add_selectbox == 'EDA':
     try:
         eda = EDA(data)
         st.write(f"{eda.algorithm_description()}")
-        # st.write(f"{eda.print_data()}")
-        if st.checkbox('Mostrar todos los datos'):
-            st.write(data)
-        if st.checkbox('Mostrar cabecera'):
-            st.write(data.head())
-        st.write("### **Descripción de la estructura de datos**")
-        if st.checkbox('Mostrar', key="DescripciónEDA"):
-            eda.description_data_structure()
-
-        st.write("### **Identificación de datos faltantes**")
-        if st.checkbox('Mostrar', key="IdentificaciónEDA"):
-            eda.missing_data()
-
-        st.write("### **Deteccion de valores Atipicos**")
-        if st.checkbox('Mostrar', key="DeteccionValoresEDA"):
-            eda.outlier_detection()
-
-        st.write("### **Identificación de relaciónes entre variables**")
-        if st.checkbox("Mostrar", key="IdentificacionRelEDA"):
-            eda.relations_variables()
+        eda.description_data_structure()
+        eda.missing_data()
+        eda.outlier_detection()
+        eda.relations_variables()
 
     except:
         st.write("No se ha ingresado una fuente de información")

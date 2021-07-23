@@ -6,6 +6,7 @@ import seaborn as sns  # Para visualización de los datos
 from EDA import EDA
 from PCA_MD import PCA_MD
 from As_rules import As_rules
+from Kmean_md import Kmean_md
 # comando para ejecutar: streamlit run file.py
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
@@ -13,7 +14,7 @@ st.write("""
 # Mineria de Datos
 *Autor: Dominguez Duran Gerardo* 
 """)
-file = st.file_uploader("Archivo", type="csv")
+file = st.file_uploader("Archivo", type=["csv"])
 # print(file)
 
 if file != None:
@@ -27,7 +28,7 @@ if file != None:
 # Add a selectbox to the sidebar:
 add_selectbox = st.sidebar.selectbox(
     'Algoritmo Actual',
-    ('EDA', 'PCA', 'Reglas de asociación')
+    ('EDA', 'PCA', 'Reglas de asociación', 'K-means')
 )
 st.write("""
 # Estas en el algoritmo: 
@@ -43,6 +44,7 @@ try:
         eda.missing_data()
         eda.outlier_detection()
         eda.relations_variables()
+
     if add_selectbox == 'PCA':
         pca_md = PCA_MD(data)
         pca_md.algorithm_description()
@@ -56,5 +58,11 @@ try:
         as_rules = As_rules(data)
         as_rules.algorithm_description()
         as_rules.data_processing()
+
+    if add_selectbox == 'K-means':
+        kmean = Kmean_md(data)
+        kmean.algorithm_description()
+        kmean.feature_selection()
+        kmean.kmeans_algorithm()
 except:
     st.write("No se ha ingresado una fuente de información")

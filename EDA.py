@@ -57,10 +57,9 @@ class EDA():
                     valores = st.text_input(
                         "Ingresa los valores en los que estas interezado seprados por una coma")
                     valoresAtipicos = valores.replace(" ", "").split(',')
-                    valoresAtipicos = valoresAtipicos
                     if len(valoresAtipicos) != 0:
-                        print("***********")
-                        print(valoresAtipicos)
+                        # print("***********")
+                        # print(valoresAtipicos)
                         for col in valoresAtipicos:
                             sns.boxplot(col, data=self.data)
                             st.pyplot()

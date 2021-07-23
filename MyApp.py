@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt  # Para generar gráficos
 import seaborn as sns  # Para visualización de los datos
 from EDA import EDA
 from PCA_MD import PCA_MD
+from As_rules import As_rules
 # comando para ejecutar: streamlit run file.py
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
@@ -26,7 +27,7 @@ if file != None:
 # Add a selectbox to the sidebar:
 add_selectbox = st.sidebar.selectbox(
     'Algoritmo Actual',
-    ('EDA', 'PCA', 'Algoritmo 3')
+    ('EDA', 'PCA', 'Reglas de asociación')
 )
 st.write("""
 # Estas en el algoritmo: 
@@ -50,5 +51,10 @@ try:
         pca_md.main_components()
         pca_md.relevancy_ratio_cargas_()
         pca_md.create_new_matrix()
+
+    if add_selectbox == 'Reglas de asociación':
+        as_rules = As_rules(data)
+        as_rules.algorithm_description()
+        as_rules.data_processing()
 except:
     st.write("No se ha ingresado una fuente de información")

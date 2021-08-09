@@ -7,6 +7,7 @@ from EDA import EDA
 from PCA_MD import PCA_MD
 from As_rules import As_rules
 from Kmean_md import Kmean_md
+from ClasificacionA import ClasificationA
 # comando para ejecutar: streamlit run file.py
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
@@ -28,7 +29,8 @@ if file != None:
 # Add a selectbox to the sidebar:
 add_selectbox = st.sidebar.selectbox(
     'Algoritmo Actual',
-    ('EDA', 'PCA', 'Reglas de asociación', 'K-means')
+    ('EDA', 'PCA', 'Reglas de asociación', 'Cluster Particional',
+     'Clasificación con Regresión Logística')
 )
 st.write("""
 # Estas en el algoritmo: 
@@ -59,10 +61,17 @@ try:
         as_rules.algorithm_description()
         as_rules.data_processing()
 
-    if add_selectbox == 'K-means':
+    if add_selectbox == 'Cluster Particional':
         kmean = Kmean_md(data)
         kmean.algorithm_description()
         kmean.feature_selection()
         kmean.kmeans_algorithm()
+
+    if add_selectbox == 'Clasificación con Regresión Logística':
+        clasificacion = ClasificationA(data)
+        clasificacion.algorithm_description()
+        clasificacion.feature_selection()
+        clasificacion.d_predictor_and_class_var()
+        clasificacion.algorithm_application()
 except:
     st.write("No se ha ingresado una fuente de información")

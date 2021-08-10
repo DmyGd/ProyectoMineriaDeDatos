@@ -19,16 +19,14 @@ class Kmean_md():
         self.valoresSeleccionados = []
 
     def algorithm_description(self):
-        st.write("""**Proposito:** Es uno de los algoritmos utilizados en la industria para crear **k** clústeres a partir de un conjunto
-                de elementos (*objetos*), de modo que los miembros de un grupo sean similares.\n
-        Ejemplo: 
-        \t * Analizar pacientes por su situación de salud: edad, pulso, 
-             presión arterial, colesterol, entre otros.
-        Usos:
-        \t * El algoritmo k-means resuelve problemas de optimización, 
-             dado que la función es minimizar (optimizar) la suma de 
-             las distancias de cada elemento al centroide de un cluster.
-                """)
+        st.markdown("""
+        <b>Proposito:</b>
+        <p style="text-align: justify;"> 
+        Este algoritmo es parte del aprendizaje no supervisado, en este el objetivo es dividir 
+        una población heterogénea de elementos en un número de grupos naturales (regiones o segmentos homogéneos)
+        de acuerdo a sus similitudes.
+        </p>
+        """,  unsafe_allow_html=True)
 
     def feature_selection(self):
         st.write("### **Selección de caracteristicas **")
@@ -174,7 +172,7 @@ class Kmean_md():
                     st.write(Cercanos)
 
                     try:
-                        #IDNumber
+                        # IDNumber
                         columna = st.text_input(
                             "Ingrese el nombre de la columna que desea consultar", key="CercanosdKmeans")
                         if len(columna) != 0:

@@ -1,0 +1,156 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{fullpage}        % Llena mas las paginas
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+
+\title{Minería de Datos \\ Interfaz de usuario}
+
+\author{Domínguez Durán Gerardo}
+
+%\date{\today}
+\date{09 de Agosto de 2021}
+\begin{document}
+\maketitle
+\begin{center}
+\section*{Proyecto Final (Documentación)}
+\end{center}
+
+
+
+\subsection*{Introducción}
+La minería de datos en conjunto con la inteligencia artificial (IA) han tenido un gran impacto en nuestra sociedad estos últimos años, todos no hemos visto beneficiados de alguna manera, ya sea con cosas tan sencillas como el ordenamiento y posición de ciertos productos en algun supermercado con el fin de agilizar las compras o incrementar las ventas de algún producto, hasta usos más complejos como por ejemplo para predecir el comportamiento de enfermedades. Resulta interesante el hecho de poder descubrir conexiones ocultas y realizar predicciones de tendencias o enfermedades, en este proyecto se desarrolló una interfaz de usuario donde se reunieron cuatro algoritmos importantes, para facilitar posibles análisis futuros. El sistema fue desarrollado esencialmente en lenguaje Python 3 con ayuda de la biblioteca Streamlit para convertir scripts de datos en aplicaciones WEB.
+
+
+  \subsection*{Algoritmos implementados}
+  Como ya se mencionó, en este proyecto se han implementado cuatro algoritmos con el fin de simplificar las tareas de investigación. Los algoritmos implementados son:
+  \begin{itemize}
+      \item Análisis Exploratorio de Datos (EDA).
+      \item Análisis de componentes principales (PCA).
+      \item Clustering Particional.
+      \item Clasificación con Regresión logística. 
+  \end{itemize}\\
+  \textbf{Análisis Exploratorio de Datos (EDA)}, el propósito de este algoritmo es el tener una idea de la estructura del conjunto de datos, identificar la variable objetivo y posibles técnicas de modelado. En este se pueden identificar cuatro pasos relevantes:
+  \begin{enumerate}
+      \item Se realiza una descripción de la estructura de los datos.
+      \item Se identificación de datos faltantes.
+      \item Se realiza una detección de valores atípicos
+      \item Se realiza una identificación de relaciones entre pares variables.
+  \end{enumerate}
+  \\ \\
+  \textbf{Análisis de componentes principales (PCA)}, este es un algoritmo matemático utilizado para reducir la cantidad de variables de conjuntos de datos, mientras se conserva la mayor cantidad de información posible. Los componentes principales son combinaciones lineales, no correlacionadas entre sí, que retienen la mayor cantidad de información. El algoritmo trabaja con operaciones matriciales y álgebra lineal (multiplicación de matrices, descomposición de matrices, vectores propios, valores propios) y estadísticas (estandarización, varianza, covarianza).El cálculo de PCA implica los siguientes pasos: 
+  \begin{enumerate}
+      \item Se estandarización de los datos
+      \item A partir de los datos estandarizados, se calcula una matriz de covarianzas o correlaciones
+      \item Se calculan los componentes (eigen-vectores) y la varianza (eigen-valores).
+      \item Se decide el número de componentes principales.
+      \item Se examina la proporción de relevancias –cargas–
+  \end{enumerate}
+  \\ \\
+  \textbf{Clusterig Particional}, este algoritmo es parte del aprendizaje no supervisado, en este el objetivo es dividir una población heterogénea de elementos en un número de grupos naturales (regiones o segmentos homogéneos), de acuerdo a sus similitudes.  Los grupos nacen a partir de los datos y con ellos se descubren patrones ocultos en éstos. Para hacer clustering es necesario saber el grado de similitud entre los elementos y la forma de hacer esto es utilizando las métricas de distancias. Dentro de los métodos para realizar el clustering tenemos el método particional, que organiza los registros dentro de k grupos y el método jerárquico, que organiza los elementos, de manera recursiva, en una estructura de árbol. 
+  \\ \\ 
+    Dentro de los métodos particionales, tenemos el algoritmo K-means, este es uno de los algoritmos utilizados en la industria para crear k clústeres a partir de un conjunto de elementos (objetos), de modo que los miembros de un grupo sean similares.  Dicho algoritmo resuelve problemas de optimización, dado que la función es minimizar (optimizar) la suma de las distancias de cada elemento al centroide (punto que ocupa la posición media en un cluster). Para este algoritmo se consideran los siguientes pasos: 
+    
+    \begin{enumerate}
+        \item Seleccionar k centroides aleatoriamente
+        \item Se asigna cada elemento al centroide más
+cercano, creando así k clústeres.
+        \item Una vez asignados todos los elementos, se
+    actualiza la posición de los centroides, tomando
+    como nuevo centro la posición del promedio de los
+    elementos pertenecientes a cada cluster.
+    \item Se repiten los pasos 2 y 3, se vuelven a
+asignar los elementos y se recalculan los
+centroides, hasta que éstos (centroides) no se
+modifiquen más, o se alcance un número
+máximo de iteraciones.
+    \end{enumerate}
+
+\textbf{ Clasificación con Regresión logística}, este algoritmo predice etiquetas de una o más clases de tipo discretas (0, 1, 2) o nominales (A, B, C; o positivo, negativo; y otros). La regresión logística es otro tipo de algoritmo de aprendizaje supervisado cuyo objetivo es predecir valores binarios (0 o 1). Este algoritmo consiste en una transformación a la regresión lineal. Dicha transformación se debe a que en una regresión lineal no se puede predecir una variable binaria. Dentro de este se contemplan los siguientes pasos:  
+
+\begin{enumerate}
+    \item Se establece transformar Y en una probabilidad $\widehat{Y}$  a partir de una función.
+    \item Se calcula la regresión lineal para predecir la probabilidad: $a+b_{i}X_{i}$
+    \item Se transforma el resultado de la regresión lineal en la probabilidad final. $\frac{1}{1+e^{-x}}=\frac{1}{2+e^{-(a+b_{i}X_{i})}}$
+\end{enumerate}
+
+\subsection*{Desarrollo}
+La interfaz de Usuario se ha desarrollado en python 3 con ayuda de la librería Streamlit disponible en \url{https://streamlit.io/}. "Streamlit convierte los scripts de datos en aplicaciones web que se pueden compartir en minutos. Todo en Python. Todo gratis. No se requiere experiencia en front-end.", (Streamlit, 2021)\\ 
+
+Streamlit es una herramienta muy intuitiva y como mencionan en su página oficial, es muy intuitiva y fácil de usar para aquellos que no cuenten con experiencia en desarrollo front-end. Se decidió utilizar esta biblioteca debido a la practicidad de sus funciones ya hechas, simplificando la carga de trabajo y facilitando el entendimiento de los métodos implementados. \\
+
+En cuanto al desarrollo del proyecto, se decidió implementar la programación orientada a objetos con Python, creando un objeto por cada algoritmo implementado. 
+\\
+\includegraphics{Objetos.JPG}
+\\ \\
+De esta forma el proyecto fue dividido en varios archivos, para facilitar el trabajo y, sobre todo, llevar un control más estable del proyecto y por ende darle la habilidad de escalabilidad a futuro.\\
+\includegraphics{Archivos.JPG}
+\\ \\
+Cada archivo cuenta con una clase, misma que tiene métodos asociados los métodos del algoritmo al que corresponden, por ejemplo el archivo $\textbf{EDA.py}$ cuenta con los siguientes métodos:  
+\\
+\includegraphics{EDA_m.JPG}
+\\ \\ 
+Esta estructura se repite para cada algoritmo, los procedimientos fueron recabados de los materiales vistos en clase, por lo que se realizó la adaptación a la herramienta de Streamlit y se obtuvo como resultado la siguiente interfaz: \\
+\includegraphics[scale=0.5]{Vista Interfaz.png}
+\\ \\
+Para desplegar dicha interfaz se debe ejecutar el comando en consola \textbf{\$streamlit run file.py}. En la siguiente imagen podemos observar la IP y el puerto en que se despliega, en este caso es el localhost en el puerto 8501 \\
+\includegraphics[scale=0.75]{ComandoConsola.JPG}
+\\ \\
+Como se puede apreciar en la imagen de la pantalla principal, es una interfaz sencilla e intuitiva al usuario, del lado izquierdo tenemos un dorpdown menú con los algoritmos disponibles, al centro tenemos el título del sistema, en este caso se llama “Minería de Datos”, un poco más abajo se aprecia lo que es un input file, será donde introduciremos nuestra data para poder trabajar los distintos algoritmos. \\
+
+Si cargamos un archivo se desplegaran dos opciones inmediatas, mostrar todos los datos y mostrar solo la cabecera, esta última muestra solo cinco renglones de todo el conjunto de datos\\
+\includegraphics[scale=0.5]{ArchivoCargado.JPG}
+\\ \\
+
+Una vez cargado el archivo, el sistema nos desplegara adicionalmente información adicional sobre el algoritmo en el que nos situamos: \\
+\includegraphics[scale=0.5]{InfoAlgoritmo.JPG}
+\\ \\
+Este comportamiento es para todos los algoritmos presentados en este proyecto, en esencia, el algoritmo te lleva de la mano, y entendimiento del usuario, aunque es preferible que se tenga conocimientos sobre el tema. En el video explicativo se podrá ver más a detalle el funcionamiento de cada uno de los algoritmos
+
+
+\subsection*{Conclusión}
+    Con este proyecto pude observar que el desarrollo de una herramienta automatizada puede hacer la diferencia cuando hablamos sobre análisis de datos, el hecho de tener juntos cuatro algoritmos es un gran plus, ya que se puede brincar de uno a otro para así realizar un análisis continuo de los datos, aumentando la productividad y sobre todo, mejorando los resultados ya que este tipo de herramientas te ayudan a comprender mejor el funcionamiento de los algoritmos.
+   
+
+ \begin{thebibliography}{9}
+     \bibitem{nano3}
+      Streamlit (s.f.) 
+     \emph{"The fastest way to build and share data apps",}.
+     Streamlit, recuperado el 09/08/2021 de: \url{https://streamlit.io/}
+     
+     \bibitem{nano3}
+     Molero, C. (s.f.) 
+     \emph{"Análisis exploratorio de datos
+        (EDA)",}.
+     Minería de Datos, Material proporcionado por el profesor. 
+     
+     
+     \bibitem{nano3}
+     Molero, C. (s.f.) 
+     \emph{"Análisis de componentes principales",}.
+     Minería de Datos, Material proporcionado por el profesor. 
+    
+    \bibitem{nano3}
+     Molero, C. (s.f.) 
+     \emph{"Aprendizaje no supervisado
+        Clustering Particional",}.
+     Minería de Datos, Material proporcionado por el profesor. 
+     
+    \bibitem{nano3}
+     Molero, C. (s.f.) 
+     \emph{"Clasificación Regresión Logística",}.
+     Minería de Datos, Material proporcionado por el profesor.
+     
+    \bibitem{nano3}
+      SAS (s.f.) 
+     \emph{"Minería de datos, Qué es y por qué es importante",}.
+     SAS, recuperado el 09/08/2021 de: \url{https://www.sas.com/es_mx/insights/analytics/data-mining.html}
+    
+\end{thebibliography}
+
+\end{document}

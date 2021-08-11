@@ -84,9 +84,12 @@ La interfaz de Usuario se ha desarrollado en python 3 con ayuda de la librería 
 
 Streamlit es una herramienta muy intuitiva y como mencionan en su página oficial, es muy intuitiva y fácil de usar para aquellos que no cuenten con experiencia en desarrollo front-end. Se decidió utilizar esta biblioteca debido a la practicidad de sus funciones ya hechas, simplificando la carga de trabajo y facilitando el entendimiento de los métodos implementados. \\
 
-En cuanto al desarrollo del proyecto, se decidió implementar la programación orientada a objetos con Python, creando un objeto por cada algoritmo implementado. 
+En cuanto al desarrollo del proyecto, se decidió implementar la programación orientada a objetos con Python, creando un objeto por cada algoritmo implementado. Se puede decir que cada objeto compone un módulo dentro de la interfaz. 
 \\
 \includegraphics{Objetos.JPG}
+\\\\
+
+
 \\ \\
 De esta forma el proyecto fue dividido en varios archivos, para facilitar el trabajo y, sobre todo, llevar un control más estable del proyecto y por ende darle la habilidad de escalabilidad a futuro.\\
 \includegraphics{Archivos.JPG}
@@ -110,12 +113,33 @@ Si cargamos un archivo se desplegaran dos opciones inmediatas, mostrar todos los
 Una vez cargado el archivo, el sistema nos desplegara adicionalmente información adicional sobre el algoritmo en el que nos situamos: \\
 \includegraphics[scale=0.5]{InfoAlgoritmo.JPG}
 \\ \\
-Este comportamiento es para todos los algoritmos presentados en este proyecto, en esencia, el algoritmo te lleva de la mano, y entendimiento del usuario, aunque es preferible que se tenga conocimientos sobre el tema. En el video explicativo se podrá ver más a detalle el funcionamiento de cada uno de los algoritmos
+Este comportamiento es para todos los algoritmos presentados en este proyecto, en esencia, el algoritmo te lleva de la mano, y entendimiento del usuario, aunque es preferible que se tenga conocimientos sobre el tema. En el video explicativo se podrá ver un poco más a detalle el funcionamiento de la interfaz con respecto a los algoritmos.
 
+\subsection*{Módulos de la interfaz }
+    \textbf{Módulo EDA}
+        El modulo EDA se presenta en la interfaz como el algoritmo por defecto al cargar la interfaz, es decir, al momento de ejecutar la interfaz, el algoritmo en el que estaremos será el de Análisis Exploratorio de Datos (EDA)\\
+\includegraphics[scale=0.5]{EDA_face.JPG}
+\\ \\
+Una vez cargada la data, el módulo de la interfaz nos desplegara una serie de opciones, correspondiente al procesamiento de datos del algoritmo visto en clase. Cabe señalar que la interfaz en todos los módulos está hecha para seguir un orden lineal, es decir, los usuarios no se pueden saltar ciertos pasos, de hacerlo se corrompería el procesamiento de datos ya que hay secciones que dependen del resultado anterior. \\
+
+\includegraphics[scale=0.5]{Op_EDA.JPG}\\
+Opciones desplegadas en la interfaz una vez que se ha cargado la data.
+\\\\
+\textbf{Módulo PCA}
+    En este módulo al igual que el anterior, una vez cargada la data se nos desplegara una descripción del algoritmo seguido de sus procedimientos en la interfaz, llevando una secuencia para guiar al usuario a través de dicho algoritmo, siguiendo una serie de pasos ordenados de tal manera que basta con desplegar uno por uno para obtener los resultados.\\
+    \includegraphics[scale=0.5]{PCA_des.JPG}\\ \\
+
+\textbf{Módulo Clúster Particional }
+    En este módulo se lleva a cabo el algoritmo de Clúster Particional, que contiene el algoritmo K-means y Elbow-method internamente, de igual forma al seleccionar dicho modulo en la interfaz se nos delegara una serie de pasos a seguir, todos estos ordenados de tal manera que el usuario pueda ir siguiendo al algoritmo de forma simple e intuitiva. \\
+    \includegraphics[scale=0.5]{ClusterP.JPG}\\\\
+    
+\textbf{Módulo Clasificación con Regresión Logístical }
+   Siguiendo con la estructura de los módulos anteriores, al seleccionar este algoritmo, se nos mostrara una breve descripción seguido de las acciones que contiene el modulo, llevando de una forma guiada e intuitiva al usuario al realizar los procesamientos de datos.   \\
+   \includegraphics[scale=0.5]{Clsif.JPG}\\\\
 
 \subsection*{Conclusión}
-    Con este proyecto pude observar que el desarrollo de una herramienta automatizada puede hacer la diferencia cuando hablamos sobre análisis de datos, el hecho de tener juntos cuatro algoritmos es un gran plus, ya que se puede brincar de uno a otro para así realizar un análisis continuo de los datos, aumentando la productividad y sobre todo, mejorando los resultados ya que este tipo de herramientas te ayudan a comprender mejor el funcionamiento de los algoritmos.
-   
+    Con este proyecto pude observar que el desarrollo de una herramienta automatizada puede hacer la diferencia cuando hablamos sobre análisis de datos, el hecho de tener juntos cuatro algoritmos es un gran plus, ya que se puede brincar de uno a otro para así realizar un análisis continuo de los datos, aumentando la productividad y sobre todo, mejorando los resultados ya que este tipo de herramientas te ayudan a comprender mejor el funcionamiento de los algoritmos. 
+    
 
  \begin{thebibliography}{9}
      \bibitem{nano3}
